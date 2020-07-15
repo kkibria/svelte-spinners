@@ -1,12 +1,15 @@
 <script>
   import chroma from "chroma-js";
-  export let size = "5em";
+  export let width = "5em";
+  export let height = `calc(${width}/15)`;
+
   export let color = "#FF3E00";
 
   let bgcolor = chroma(color).alpha(0.2);
 
   let css_var = `
---size: ${size};
+--width: ${width};
+--height: ${height};
 --color: ${color};
 --bgcolor: ${bgcolor};
 `;
@@ -44,8 +47,8 @@
   }
 
   .wrapper {
-    height: calc(var(--size) / 15);
-    width: calc(var(--size) * 2);
+    height: var(--height);
+    width: calc(var(--width) * 2);
     background-color: var(--bgcolor);
     position: relative;
     overflow: hidden;
@@ -53,7 +56,7 @@
   }
 
   .lines {
-    height: calc(var(--size) / 15);
+    height: var(--height);
     background-color: var(--color);
     position: absolute;
     overflow: hidden;
